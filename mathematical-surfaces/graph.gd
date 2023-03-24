@@ -38,5 +38,5 @@ func _process(_delta):
 		point.position.y = (
 			_function_library
 				.get_function()
-				.call(point.position.x, point.position.y, elapsed_time)
+				.call(point.position.x, point.position.z, elapsed_time)
 		)

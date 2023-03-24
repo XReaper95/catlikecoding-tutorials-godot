@@ -17,33 +17,27 @@ func set_function_from_index(index: int):
 
 var _selected_function: Callable
 enum Function {
-	Wave, MultiWave, MorphingWave, Ripple
+	Wave, MultiWave, Ripple
 }
 var _function_map = {
 	Function.Wave: _wave_function,
-	Function.MultiWave: _multiwave_function,
-	Function.MorphingWave: _morphing_wave_function,
+	Function.MultiWave: _multi_wave_function,
 	Function.Ripple: _ripple_function
 }
 
 ### Functions ###
 func _wave_function(x: float, z: float, t: float) -> float:
-	return sin(PI * (x + t))
-	
-	
-func _multiwave_function(x: float, z: float, t: float) -> float:
+	return sin(PI * (x + z + t))
+
+
+func _multi_wave_function(x: float, z: float, t: float) -> float:
 	var wave = _wave_function(x, z, t)
-	wave += 0.5 * sin(2.0 * PI * (x + t))
-	return wave * (2.0 / 3.0)
-
-
-func _morphing_wave_function(x: float, z: float, t: float) -> float:
-	var half_period_wave = sin(PI * (x + 0.5 * t))
-	half_period_wave += 0.5 * sin(2.0 * PI * (x + t))
-	return half_period_wave * (2.0 / 3.0)
+	wave += 0.5 * sin(2.0 * PI * (z + t))
+	wave += sin(PI * (x + z + 0.25 * t))
+	return wave * (1.0 / 2.5)
 
 
 func _ripple_function(x: float, z: float, t: float) -> float:
-	var d = abs(x)
+	var d = sqrt(x * x + z * z)
 	var y = sin(PI * (4.0 * d - t))
 	return y / (1.0 + 10.0 * d)

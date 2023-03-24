@@ -24,12 +24,14 @@ resolution = 50
 _function_library = ExtResource("2_1tkxj")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.619949, 0.277378, -0.733978, 0.0231047, 0.928572, 0.370432, 0.784301, -0.246608, 0.569259, -1.52798, 1.3978, 1.64049)
+transform = Transform3D(-0.0784567, -0.691946, 0.717674, 0, 0.719893, 0.694085, -0.996918, 0.0544557, -0.0564804, 2.11864, 1.89242, -0.217937)
 size = 3.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.433012, 0.250001, 0.40722, -0.320705, 0.855173, -0.290124, 0.842406, 0.45407, 0, 22.7362, 31.1012)
 shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_max_distance = 10.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0kl4f")
