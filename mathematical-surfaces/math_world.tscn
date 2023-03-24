@@ -20,7 +20,7 @@ glow_enabled = true
 
 [node name="Graph" type="Node3D" parent="."]
 script = ExtResource("1_cm1qr")
-resolution = 50
+resolution = 48
 _function_library = ExtResource("2_1tkxj")
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -39,3 +39,5 @@ environment = SubResource("Environment_0kl4f")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("3_bunkb")]
+
+[connection signal="resolution_changed" from="CanvasLayer/UI" to="Graph" method="_on_ui_resolution_changed"]

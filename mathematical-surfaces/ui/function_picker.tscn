@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bj5xxan8x51tr"]
+[gd_scene load_steps=3 format=3 uid="uid://bj5xxan8x51tr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ylrsp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qkk5d"]
+bg_color = Color(0.137255, 0.239216, 0.513726, 1)
+border_width_left = 8
+border_width_right = 8
+border_color = Color(0.168627, 0.168627, 0.243137, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="FunctionPicker" type="Control"]
 layout_mode = 3
@@ -23,7 +34,44 @@ color = Color(0.141176, 0.360784, 0.564706, 1)
 material = SubResource("CanvasItemMaterial_ylrsp")
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/HBoxContainer"]
+[node name="SetResolutionLabel" type="Label" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Resolution:"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="ResMinLabel2" type="Label" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+text = "10"
+horizontal_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+size_flags_vertical = 4
+min_value = 10.0
+value = 50.0
+
+[node name="ResMaxLabel" type="Label" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_qkk5d")
+text = "50"
+horizontal_alignment = 1
+
+[node name="SelectFunctionLabel" type="Label" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "Select Function:"

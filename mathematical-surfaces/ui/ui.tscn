@@ -16,7 +16,7 @@ _function_library = ExtResource("2_oynfo")
 
 [node name="FunctionPicker" parent="." instance=ExtResource("1_cqvi2")]
 layout_mode = 1
-offset_left = 913.0
-offset_top = 40.0
-offset_right = -239.0
-offset_bottom = -608.0
+offset_left = 867.0
+offset_top = 8.0
+offset_right = -285.0
+offset_bottom = -640.0

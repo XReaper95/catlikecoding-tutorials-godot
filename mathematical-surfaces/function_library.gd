@@ -17,27 +17,36 @@ func set_function_from_index(index: int):
 
 var _selected_function: Callable
 enum Function {
-	Wave, MultiWave, Ripple
+	Wave, MultiWave, Ripple, Sphere
 }
 var _function_map = {
-	Function.Wave: _wave_function,
-	Function.MultiWave: _multi_wave_function,
-	Function.Ripple: _ripple_function
+	Function.Wave: _wave,
+	Function.MultiWave: _multi_wave,
+	Function.Ripple: _ripple,
+	Function.Sphere: _sphere
 }
 
 ### Functions ###
-func _wave_function(x: float, z: float, t: float) -> float:
-	return sin(PI * (x + z + t))
+func _wave(u: float, v: float, t: float) -> Vector3:
+	return Vector3(u, sin(PI * (u + v + t)), v)
 
 
-func _multi_wave_function(x: float, z: float, t: float) -> float:
-	var wave = _wave_function(x, z, t)
-	wave += 0.5 * sin(2.0 * PI * (z + t))
-	wave += sin(PI * (x + z + 0.25 * t))
-	return wave * (1.0 / 2.5)
+func _multi_wave(u: float, v: float, t: float) -> Vector3:
+	var y = sin(PI * (u + 0.5 * t))
+	y += 0.5 * sin(2.0 * PI * (v + t))
+	y += sin(PI * (u + v + 0.25 * t))
+	y *= (1.0 / 2.5)
+	return Vector3(u, y, v)
 
 
-func _ripple_function(x: float, z: float, t: float) -> float:
-	var d = sqrt(x * x + z * z)
+func _ripple(u: float, v: float, t: float) -> Vector3:
+	var d = sqrt(u * u + v * v)
 	var y = sin(PI * (4.0 * d - t))
-	return y / (1.0 + 10.0 * d)
+	y /= (1.0 + 10.0 * d)
+	return Vector3(u, y, v)
+
+
+func _sphere(u: float, v: float, t: float) -> Vector3: 
+	var r = 0.9 + 0.1 * sin(PI * (6.0 * u + 4.0 * v + t))
+	var s = r * cos(0.5 * PI * v)
+	return Vector3(s * sin(PI * u), r * sin(PI * 0.5 * v), s * cos(PI * u))
