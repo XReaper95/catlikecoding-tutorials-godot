@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="FunctionLibrary" load_steps=2 format=3 uid="uid://lk65q5xr7o0y"]
+
+[ext_resource type="Script" path="res://function_library.gd" id="1_eur4r"]
+
+[resource]
+script = ExtResource("1_eur4r")
+function = 1
