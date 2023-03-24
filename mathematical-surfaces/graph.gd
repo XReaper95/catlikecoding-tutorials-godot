@@ -11,12 +11,21 @@ extends Node3D
 
 func _ready():
 	var pos = Vector3.ZERO
+	var x := 0
+	var z := 0
 	
 	for i in range(resolution * resolution):
+		if x == resolution:
+			x = 0
+			z += 1
+		
+		x = i % resolution + 1
+		
 		var new_point := _Point.instantiate() as CSGBox3D
 		_points.append(new_point)
 		
-		pos.x = (i + 0.5) * _step - 1.0
+		pos.x = (x + 0.5) * _step - 1.0
+		pos.z = (z + 0.5) * _step - 1.0
 		new_point.position = pos
 		new_point.scale = _scale
 		
