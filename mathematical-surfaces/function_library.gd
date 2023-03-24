@@ -1,25 +1,29 @@
 class_name FunctionLibrary
 extends Resource
 
-@export var function: _Function = _Function.Wave:
+@export var function: Function = Function.Wave:
 	set(value):
 		_selected_function = _function_map.get(value)
 		function = value
 
 
-func get_function():
+func get_function() -> Callable:
 	return _selected_function
 
 
+func set_function_from_index(index: int):
+	_selected_function = _function_map.get(index)
+
+
 var _selected_function: Callable
-enum _Function {
+enum Function {
 	Wave, MultiWave, MorphingWave, Ripple
 }
 var _function_map = {
-	_Function.Wave: _wave_function,
-	_Function.MultiWave: _multiwave_function,
-	_Function.MorphingWave: _morphing_wave_function,
-	_Function.Ripple: _ripple_function
+	Function.Wave: _wave_function,
+	Function.MultiWave: _multiwave_function,
+	Function.MorphingWave: _morphing_wave_function,
+	Function.Ripple: _ripple_function
 }
 
 ### Functions ###

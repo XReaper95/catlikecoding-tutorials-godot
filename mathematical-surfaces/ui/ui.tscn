@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj1st1hirhnfh"]
+
+[ext_resource type="PackedScene" uid="uid://bj5xxan8x51tr" path="res://ui/function_picker.tscn" id="1_cqvi2"]
+[ext_resource type="Script" path="res://ui/ui.gd" id="1_mafbd"]
+[ext_resource type="Resource" uid="uid://lk65q5xr7o0y" path="res://function_library.tres" id="2_oynfo"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mafbd")
+_function_library = ExtResource("2_oynfo")
+
+[node name="FunctionPicker" parent="." instance=ExtResource("1_cqvi2")]
+layout_mode = 1
+offset_left = 913.0
+offset_top = 40.0
+offset_right = -239.0
+offset_bottom = -608.0
