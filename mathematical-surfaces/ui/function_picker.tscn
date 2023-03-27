@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj5xxan8x51tr"]
+[gd_scene load_steps=4 format=3 uid="uid://bj5xxan8x51tr"]
+
+[ext_resource type="ButtonGroup" uid="uid://cvnok0kix4ye5" path="res://checkboxes.tres" id="1_46h7o"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ylrsp"]
 
@@ -59,7 +61,7 @@ custom_minimum_size = Vector2(175, 0)
 layout_mode = 2
 size_flags_vertical = 4
 min_value = 10.0
-value = 50.0
+value = 100.0
 
 [node name="ResMaxLabel" type="Label" parent="PanelContainer/HBoxContainer/MarginContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(45, 0)
@@ -68,7 +70,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_qkk5d")
-text = "50"
+text = "100"
 horizontal_alignment = 1
 
 [node name="SelectFunctionLabel" type="Label" parent="PanelContainer/HBoxContainer"]
@@ -92,3 +94,35 @@ text_overrun_behavior = 3
 item_count = 1
 popup/item_0/text = "AAAAAAAAAAAA"
 popup/item_0/id = 0
+
+[node name="MarginContainer4" type="MarginContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/MarginContainer4"]
+layout_mode = 2
+
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/HBoxContainer/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+button_pressed = true
+button_group = ExtResource("1_46h7o")
+text = "FPS"
+
+[node name="CheckBox2" type="CheckBox" parent="PanelContainer/HBoxContainer/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+button_group = ExtResource("1_46h7o")
+text = "MS"
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+text = "FPS: 000\\nBest: 000\\nWorst: 000"

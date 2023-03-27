@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://g6tvqxygskqi"]
+
+[ext_resource type="Shader" uid="uid://cdx1gqu6jeydk" path="res://point_visual_shader.tres" id="1_ges7g"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ges7g")
+shader_parameter/Smoothness = 0.5
